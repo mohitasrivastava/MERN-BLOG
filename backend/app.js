@@ -20,7 +20,15 @@ mongoose
   )
   .catch((err) => console.log(err));
 
-//   // Config
+const PORT = process.env.PORT || 5000;
+
+// step 3: Heroku
+
+if (process.env.NODE_ENV == 'production') {
+  app.use(express.static('client/build'));
+}
+
+// Config
 // if (process.env.NODE_ENV === "PRODUCTION") {
 
 //   app.use(express.static(path.join(__dirname, "frontend/build")));
